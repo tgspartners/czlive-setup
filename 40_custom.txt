@@ -1,0 +1,13 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+
+menuentry "(hd1,1)/czlive-setup-main/czlive.iso" {
+insmod lvm
+set isofile="/czlive-setup-main/czlive.iso"
+loopback loop (hd1,1)$isofile
+linux (loop)/live/vmlinuz boot=live components live-config findiso=$isofile ip=frommedia toram=filesystem.squashfs union=overlay username=user
+initrd (loop)/live/initrd.img
+}
