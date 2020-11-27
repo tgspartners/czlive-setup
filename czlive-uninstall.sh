@@ -1,4 +1,4 @@
 #!/bin/bash
-cd /
-rm /czlive --recursive --force
-ls /czlive* --recursive
+cd 
+rm /czlive-setup-main --recursive --force
+
